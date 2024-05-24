@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primer">#2A93CE</color>
+    <color name="sekunder">#39BA0C</color>
+    <color name="orange">#F89603</color>
+    <color name="abu">#858585</color>
+    <color name="sports">#4758D6</color>
+    <color name="musik">#001085</color>
+    <color name="danger">#F30000</color>
+
+</resources>

@@ -1,0 +1,28 @@
+<!-- res/layout/fragment_favorite.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_favorite_kuis"
+        android:layout_width="376dp"
+        android:layout_height="590dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="2dp" />
+
+    <TextView
+        android:id="@+id/favoritePage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="149dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="Favorit"
+        android:textSize="24sp" />
+</RelativeLayout>

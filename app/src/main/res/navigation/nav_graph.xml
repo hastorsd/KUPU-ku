@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.project.kupu_kuapps.main_ui.SplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.project.kupu_kuapps.main_ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_navigationParentFragment"
+            app:destination="@id/navigationParentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.project.kupu_kuapps.main_ui.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigationParentFragment"
+        android:name="com.project.kupu_kuapps.main_ui.NavigationParentFragment"
+        android:label="fragment_navigation_parent"
+        tools:layout="@layout/fragment_navigation_parent" >
+        <action
+            android:id="@+id/action_navigationParentFragment_to_semuaKuis2"
+            app:destination="@id/semuaKuis2" />
+        <action
+            android:id="@+id/action_navigationParentFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_navigationParentFragment_to_indonesiaKuisFragment"
+            app:destination="@id/indonesiaKuisFragment" />
+        <action
+            android:id="@+id/action_navigationParentFragment_to_sesiKuisFragment2"
+            app:destination="@id/sesiKuisFragment2" />
+        <action
+            android:id="@+id/action_navigationParentFragment_to_sesiKuisFragment"
+            app:destination="@id/sesiKuisFragment" />
+        <action
+            android:id="@+id/action_navigationParentFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/semuaKuis2"
+        android:name="com.project.kupu_kuapps.main_ui.SemuaKuis"
+        android:label="fragment_semua_kuis"
+        tools:layout="@layout/fragment_semua_kuis" >
+        <action
+            android:id="@+id/action_semuaKuis2_to_navigationParentFragment"
+            app:destination="@id/navigationParentFragment" />
+        <action
+            android:id="@+id/action_semuaKuis2_to_sesiKuisFragment"
+            app:destination="@id/sesiKuisFragment" />
+        <action
+            android:id="@+id/action_semuaKuis2_to_indonesiaKuisFragment"
+            app:destination="@id/indonesiaKuisFragment" />
+        <action
+            android:id="@+id/action_semuaKuis2_to_sesiKuisFragment2"
+            app:destination="@id/sesiKuisFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/sesiKuisFragment"
+        android:name="com.project.kupu_kuapps.main_ui.SesiKuisFragment"
+        android:label="fragment_sesi_kuis"
+        tools:layout="@layout/fragment_sesi_kuis" >
+        <action
+            android:id="@+id/action_sesiKuisFragment_to_semuaKuis2"
+            app:destination="@id/semuaKuis2" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.project.kupu_kuapps.main_ui.EditProfileFragment"
+        android:label="EditProfileFragment" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_navigationParentFragment"
+            app:destination="@id/navigationParentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/indonesiaKuisFragment"
+        android:name="com.project.kupu_kuapps.main_ui.IndonesiaKuisFragment"
+        android:label="IndonesiaKuisFragment" >
+        <action
+            android:id="@+id/action_indonesiaKuisFragment_to_semuaKuis2"
+            app:destination="@id/semuaKuis2" />
+    </fragment>
+    <fragment
+        android:id="@+id/sesiKuisFragment2"
+        android:name="com.project.kupu_kuapps.main_ui.SesiKuisFragment2"
+        android:label="SesiKuisFragment2" >
+        <action
+            android:id="@+id/action_sesiKuisFragment2_to_semuaKuis2"
+            app:destination="@id/semuaKuis2" />
+    </fragment>
+</navigation>

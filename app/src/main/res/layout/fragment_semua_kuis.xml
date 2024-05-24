@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main_ui.SemuaKuis">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/tombolBackSemuaKuis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="39dp"
+        android:background="@drawable/rounded_bg_nocolor_nostroke"
+        android:src="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/kuisTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="Kuis"
+        android:textSize="20sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/semuaKuis"
+        android:layout_width="376dp"
+        android:layout_height="542dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="189dp" />
+
+    <SearchView
+        android:id="@+id/searchSemuaKuis"
+        android:layout_width="367dp"
+        android:layout_height="51dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="98dp"
+        android:background="@drawable/rounded_bg_nocolor"
+        android:queryHint="Cari sesuatu?" />
+
+</RelativeLayout>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/sports"
+    tools:context=".main_ui.SesiKuisFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="45dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Saatnya Kuis!"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="363dp"
+        android:layout_height="242dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="162dp"
+        app:cardCornerRadius="30dp">
+
+        <ImageView
+            android:id="@+id/imagePertanyaanKuisSejIndo"
+            android:layout_width="117dp"
+            android:layout_height="106dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/teksPertanyaanSejIndo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/open_sans"
+            android:text="textView" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/benarButtonSejIndo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_bg_nocolor_nostroke"
+            android:fontFamily="@font/open_sans_semibold"
+            android:textColor="#34A853"
+            android:text="BENAR!" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/salahButtonSejIndo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="225dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_bg_nocolor_nostroke"
+            android:fontFamily="@font/open_sans_semibold"
+            android:textColor="#EB4335"
+            android:text="SALAH!" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/menyerahButtonSejIndo"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/rounded_bg_danger"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Menyerah"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/feedbackPertanyaanSejIndo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginBottom="269dp"
+        android:fontFamily="@font/open_sans"
+        android:text="Feedback"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/nextPertanyaanSejIndo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="412dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/open_sans"
+        android:text="Selanjutnya! ->"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
