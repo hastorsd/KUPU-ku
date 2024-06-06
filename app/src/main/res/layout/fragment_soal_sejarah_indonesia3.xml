@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.314">
 
         <ImageView
-            android:id="@+id/imagePertanyaanKuis"
+            android:id="@+id/imagePertanyaanKuisSejIndo3"
             android:layout_width="117dp"
             android:layout_height="106dp"
             android:layout_gravity="center_horizontal"
@@ -48,7 +48,7 @@
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/teksPertanyaan"
+            android:id="@+id/teksPertanyaanSejIndo3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -59,7 +59,7 @@
             android:textAlignment="center" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/benarButton"
+            android:id="@+id/benarButtonSejIndo3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -71,7 +71,7 @@
             android:textColor="#34A853" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/salahButton"
+            android:id="@+id/salahButtonSejIndo3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -85,7 +85,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/menyerahButton"
+        android:id="@+id/menyerahButtonSejIndo3"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -102,7 +102,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/feedbackPertanyaan"
+        android:id="@+id/feedbackPertanyaanSejIndo3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

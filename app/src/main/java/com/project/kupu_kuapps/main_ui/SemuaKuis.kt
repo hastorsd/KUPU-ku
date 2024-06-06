@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.kupu_kuapps.R
@@ -20,6 +22,7 @@ class SemuaKuis : Fragment() {
 
     private lateinit var kuisAdapter: KuisAdapter
     private val kuisList = mutableListOf<Kuis>()
+    private val displayedKuisList = mutableListOf<Kuis>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,7 +83,9 @@ class SemuaKuis : Fragment() {
             loadFavoriteStatus(requireContext(), kuisList)
         }
 
-        kuisAdapter = KuisAdapter(kuisList, { kuis ->
+        displayedKuisList.addAll(kuisList)
+
+        kuisAdapter = KuisAdapter(displayedKuisList, { kuis ->
             // Handle item click
             findNavController().navigate(kuis.destinationId)
             // Handle item click
@@ -89,6 +94,9 @@ class SemuaKuis : Fragment() {
             kuis.isFavorited = !kuis.isFavorited
             saveFavoriteStatus(requireContext(), kuisList)
             // Optionally save the favorite status to SharedPreferences or database
+        }, { kuis ->
+            // Handle button click
+            findNavController().navigate(kuis.destinationId)
         })
 
         val recyclerViewSemuaKuis = binding.semuaKuis
@@ -100,7 +108,42 @@ class SemuaKuis : Fragment() {
             findNavController().navigate(R.id.action_semuaKuis2_to_navigationParentFragment)
         }
 
-        binding
+        setupSearchView()
+
+        // Disable back button
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Do nothing to disable back button
+            }
+        })
+    }
+
+    private fun setupSearchView() {
+        binding.searchSemuaKuis.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // No action needed for this use case
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterKuisList(newText)
+                return true
+            }
+        })
+    }
+
+    private fun filterKuisList(query: String?) {
+        displayedKuisList.clear()
+        if (query.isNullOrEmpty()) {
+            displayedKuisList.addAll(kuisList)
+        } else {
+            val lowerCaseQuery = query.lowercase()
+            val filteredList = kuisList.filter {
+                it.nameKuis.lowercase().contains(lowerCaseQuery) || it.descKuis.lowercase().contains(lowerCaseQuery)
+            }
+            displayedKuisList.addAll(filteredList)
+        }
+        kuisAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {

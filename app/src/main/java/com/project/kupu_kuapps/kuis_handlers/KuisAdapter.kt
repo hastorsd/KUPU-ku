@@ -1,4 +1,3 @@
-// KuisAdapter.kt
 package com.project.kupu_kuapps.kuis_handlers
 
 import android.view.LayoutInflater
@@ -11,7 +10,8 @@ import com.project.kupu_kuapps.databinding.ItemKuisBinding
 class KuisAdapter(
     private val kuisList: List<Kuis>,
     private val itemClickListener: (Kuis) -> Unit,
-    private val favoriteClickListener: (Kuis) -> Unit
+    private val favoriteClickListener: (Kuis) -> Unit,
+    private val mainButtonClickListener: (Kuis) -> Unit // Add a listener for the button
 ) : RecyclerView.Adapter<KuisAdapter.ViewHolder>() {
 
     private val colors = listOf(
@@ -44,6 +44,11 @@ class KuisAdapter(
 
             binding.root.setOnClickListener {
                 itemClickListener(kuis)
+            }
+
+            // Set click listener for the button
+            binding.buttonMainKuis.setOnClickListener {
+                mainButtonClickListener(kuis)
             }
         }
     }

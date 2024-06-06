@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import com.project.kupu_kuapps.R
 import com.project.kupu_kuapps.database.DatabaseHelper
@@ -45,7 +46,15 @@ class LoginFragment : Fragment() {
         binding.buatAkun.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+
+        // Disable back button
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Do nothing to disable back button
+            }
+        })
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

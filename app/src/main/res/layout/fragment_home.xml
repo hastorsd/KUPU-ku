@@ -1,244 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".main_ui.Home">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:fontFamily="@font/open_sans"
-        android:text="Selamat datang!"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintHorizontal_bias="0.065"
-        app:layout_constraintStart_toEndOf="@+id/roundImageView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/open_sans"
-        android:text="User"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintHorizontal_bias="0.039"
-        app:layout_constraintStart_toEndOf="@+id/roundImageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/roundImageView"
-        android:layout_width="79dp"
-        android:layout_height="78dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toTopOf="@+id/searchView"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintHorizontal_bias="0.095"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.617" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="49dp"
-        android:layout_height="48dp"
-        android:background="@color/white"
-        android:src="@drawable/baseline_notifications_none_24"
-        app:layout_constraintBottom_toTopOf="@+id/searchView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.925"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.596" />
-
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="367dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/rounded_bg_nocolor"
-        android:queryHint="Cari sesuatu?"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
-
-<!--    <ScrollView-->
-<!--        android:id="@+id/scrollView"-->
-<!--        android:layout_width="367dp"-->
-<!--        android:layout_height="151dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:background="#F7FFFFFF"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/searchView">-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical"-->
-<!--            tools:layout_editor_absoluteX="47dp"-->
-<!--            tools:layout_editor_absoluteY="230dp">-->
-
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/my_recycler"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                tools:listitem="@layout/funfact_card">-->
-
-
-<!--            </androidx.recyclerview.widget.RecyclerView>-->
-
-
-<!--        </LinearLayout>-->
-<!--    </ScrollView>-->
-
-<!--    <androidx.viewpager2.widget.ViewPager2-->
-<!--        android:id="@+id/viewPagerFunfact"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:layout_marginTop="12dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/searchView" />-->
-    <LinearLayout
-        android:id="@+id/areaFunfact"
-        android:layout_width="384dp"
-        android:layout_height="174dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/funfact_display"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="23dp"
-            tools:layout_editor_absoluteY="233dp" />
-
-    </LinearLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="366dp"
-        android:layout_height="123dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/areaFunfact">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/categoryLabel"
+            android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/open_sans_semibold"
-            android:text="Kategori"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="68dp"
+            android:fontFamily="@font/open_sans"
+            android:text="Selamat datang!"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintHorizontal_bias="0.065"
+            app:layout_constraintStart_toEndOf="@+id/roundImageView"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/categoryContainer"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_below="@id/categoryLabel"
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            android:weightSum="3">
+            android:fontFamily="@font/open_sans"
+            android:textAlignment="textStart"
+            android:text="User"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintHorizontal_bias="0.039"
+            app:layout_constraintStart_toEndOf="@+id/roundImageView"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="20dp"
-                android:layout_height="65dp"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_bg_primer"
-                android:fontFamily="@font/open_sans"
-                android:text="Geografi"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/roundImageView"
+            android:layout_width="79dp"
+            android:layout_height="78dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toTopOf="@+id/searchView"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintHorizontal_bias="0.095"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.617" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="20dp"
-                android:layout_height="65dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_bg_sekunder"
-                android:fontFamily="@font/open_sans"
-                android:text="Sejarah"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="49dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_notifications_none_24"
+            app:layout_constraintBottom_toTopOf="@+id/searchView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.925"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.596" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="20dp"
-                android:layout_height="65dp"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_bg_orange"
-                android:fontFamily="@font/open_sans"
-                android:text="Budaya"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
-
-        </LinearLayout>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="365dp"
-        android:layout_height="272dp"
-        android:background="@drawable/rounded_bg_nocolor_nostroke"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
-
-        <TextView
-            android:id="@+id/categoryLabelKuis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/open_sans_semibold"
-            android:text="Kuis"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        <android.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="367dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/rounded_bg_nocolor"
+            android:queryHint="Coba cari kuis"
+            android:hint="Cari sesuatu?"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/username" />
 
         <LinearLayout
-            android:id="@+id/categoryContainerKuis"
-            android:layout_width="match_parent"
-            android:layout_height="204dp"
-            android:layout_below="@id/categoryLabelKuis"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            android:weightSum="3">
+            android:id="@+id/areaFunfact"
+            android:layout_width="384dp"
+            android:layout_height="174dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_kuis"
+                android:id="@+id/funfact_display"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/item_kuis" />
+                tools:layout_editor_absoluteX="23dp"
+                tools:layout_editor_absoluteY="233dp" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/categoryLabelLihatSemua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/open_sans"
-            android:text="Lihat Semua"
-            android:textColor="@color/abu"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="366dp"
+            android:layout_height="123dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/areaFunfact">
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/categoryLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/open_sans_semibold"
+                android:text="Kategori"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/categoryContainer"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@id/categoryLabel"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="20dp"
+                    android:layout_height="65dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_bg_primer"
+                    android:fontFamily="@font/open_sans"
+                    android:text="Geografi"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="20dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_bg_sekunder"
+                    android:fontFamily="@font.open_sans"
+                    android:text="Sejarah"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="20dp"
+                    android:layout_height="65dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_bg_orange"
+                    android:fontFamily="@font/open_sans"
+                    android:text="Budaya"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="365dp"
+            android:layout_height="272dp"
+            android:background="@drawable/rounded_bg_nocolor_nostroke"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+
+            <TextView
+                android:id="@+id/categoryLabelKuis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/open_sans_semibold"
+                android:text="Kuis"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/categoryContainerKuis"
+                android:layout_width="match_parent"
+                android:layout_height="204dp"
+                android:layout_below="@id/categoryLabelKuis"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_kuis"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/item_kuis" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/categoryLabelLihatSemua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/open_sans"
+                android:text="Lihat Semua"
+                android:textColor="@color/abu"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,4 +1,3 @@
-// Home.kt
 package com.project.kupu_kuapps.main_ui
 
 import android.content.Context
@@ -7,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -23,6 +24,7 @@ class Home : Fragment() {
 
     private lateinit var kuisAdapter: KuisAdapter
     private val kuisList = mutableListOf<Kuis>()
+    private val displayedKuisList = mutableListOf<Kuis>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -78,17 +80,6 @@ class Home : Fragment() {
         recyclerViewFunfact.adapter = funfactAdapterUsed(funfactList) {
             // Handle item click here
         }
-//        val funfactList = listOf(
-//            funFact(
-//                R.drawable.borobudur,
-//                "Tahukah Kamu?",
-//                "Candi Borobudur adalah candi Buddha terbesar di Indonesia dan di dunia."
-//            ),
-//            // Tambahkan item lainnya jika diperlukan
-//        )
-//
-//        val funfactAdapter = funfactAdapter(funfactList)
-//        binding.viewPagerFunfact.adapter = funfactAdapter
 
         // Kuis
         if (kuisList.isEmpty()) {
@@ -116,14 +107,19 @@ class Home : Fragment() {
             loadFavoriteStatus(requireContext(), kuisList)
         }
 
-        kuisAdapter = KuisAdapter(kuisList, {kuis ->
+        displayedKuisList.addAll(kuisList)
+
+        kuisAdapter = KuisAdapter(displayedKuisList, {
+                kuis -> findNavController().navigate(kuis.destinationId)
             // Handle item click
-            findNavController().navigate(kuis.destinationId)
         }, { kuis ->
             // Toggle favorite status
             kuis.isFavorited = !kuis.isFavorited
             saveFavoriteStatus(requireContext(), kuisList)
             // Optionally save the favorite status to SharedPreferences or database
+        }, { kuis ->
+            // Handle button click
+            findNavController().navigate(kuis.destinationId)
         })
 
         val recyclerView = binding.rvKuis
@@ -134,11 +130,43 @@ class Home : Fragment() {
         binding.categoryLabelLihatSemua.setOnClickListener {
             findNavController().navigate(R.id.action_navigationParentFragment_to_semuaKuis2)
         }
+
+        setupSearchView()
+
+        // Disable back button
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Do nothing to disable back button
+            }
+        })
     }
 
-    private fun getUsername(): String {
-        val sharedPreferences = requireActivity().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        return sharedPreferences.getString("username", "User") ?: "User"
+    private fun setupSearchView() {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // No action needed for this use case
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterKuisList(newText)
+                return true
+            }
+        })
+    }
+
+    private fun filterKuisList(query: String?) {
+        displayedKuisList.clear()
+        if (query.isNullOrEmpty()) {
+            displayedKuisList.addAll(kuisList)
+        } else {
+            val lowerCaseQuery = query.lowercase()
+            val filteredList = kuisList.filter {
+                it.nameKuis.lowercase().contains(lowerCaseQuery) || it.descKuis.lowercase().contains(lowerCaseQuery)
+            }
+            displayedKuisList.addAll(filteredList)
+        }
+        kuisAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {

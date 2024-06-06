@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/sports"
-    tools:context=".main_ui.SesiKuisFragment">
+    tools:context=".kuis_sejarah.dunia.SesiKuisFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="45dp"
         android:fontFamily="@font/open_sans_bold"
         android:text="Saatnya Kuis!"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.29" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="363dp"
         android:layout_height="242dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="162dp"
-        app:cardCornerRadius="30dp">
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.314">
 
         <ImageView
             android:id="@+id/imagePertanyaanKuisSejIndo"
@@ -45,7 +54,9 @@
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
             android:fontFamily="@font/open_sans"
-            android:text="textView" />
+            android:padding="5dp"
+            android:text="textView"
+            android:textAlignment="center" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/benarButtonSejIndo"
@@ -54,10 +65,10 @@
             android:layout_gravity="bottom"
             android:layout_marginStart="50dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/rounded_bg_nocolor_nostroke"
+            android:background="@drawable/button_benar_salah"
             android:fontFamily="@font/open_sans_semibold"
-            android:textColor="#34A853"
-            android:text="BENAR!" />
+            android:text="BENAR!"
+            android:textColor="#34A853" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/salahButtonSejIndo"
@@ -66,10 +77,10 @@
             android:layout_gravity="bottom"
             android:layout_marginStart="225dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/rounded_bg_nocolor_nostroke"
+            android:background="@drawable/button_benar_salah"
             android:fontFamily="@font/open_sans_semibold"
-            android:textColor="#EB4335"
-            android:text="SALAH!" />
+            android:text="SALAH!"
+            android:textColor="#EB4335" />
 
     </androidx.cardview.widget.CardView>
 
@@ -79,12 +90,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/rounded_bg_danger"
         android:fontFamily="@font/open_sans_bold"
         android:text="Menyerah"
         android:textAllCaps="false"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/feedbackPertanyaanSejIndo"
@@ -92,23 +107,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/open_sans"
         android:gravity="center"
-        android:layout_marginBottom="269dp"
-        android:fontFamily="@font/open_sans"
         android:text="Feedback"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-    <TextView
-        android:id="@+id/nextPertanyaanSejIndo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="412dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/open_sans"
-        android:text="Selanjutnya! ->"
-        android:textColor="@color/white" />
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

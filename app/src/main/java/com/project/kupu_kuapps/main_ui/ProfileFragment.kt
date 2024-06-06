@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.project.kupu_kuapps.R
@@ -43,6 +44,13 @@ class ProfileFragment : Fragment() {
         binding.logoutButton.setOnClickListener {
             findNavController().navigate(R.id.action_navigationParentFragment_to_loginFragment)
         }
+
+        // Disable back button
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Do nothing to disable back button
+            }
+        })
     }
 
     override fun onDestroyView() {

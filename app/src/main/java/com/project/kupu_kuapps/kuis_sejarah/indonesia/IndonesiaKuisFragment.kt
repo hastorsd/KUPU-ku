@@ -1,9 +1,12 @@
-package com.project.kupu_kuapps.main_ui
+package com.project.kupu_kuapps.kuis_sejarah.indonesia
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.project.kupu_kuapps.R
@@ -37,16 +40,27 @@ class IndonesiaKuisFragment : Fragment() {
         displayQuestion()
 
         binding.benarButtonSejIndo.setOnClickListener {
+            it.setBackgroundResource(R.drawable.button_benar_salah_pressed)
             checkAnswer(true)
+            disableAnswerButtons()
         }
 
         binding.salahButtonSejIndo.setOnClickListener {
+            it.setBackgroundResource(R.drawable.button_benar_salah_pressed)
             checkAnswer(false)
+            disableAnswerButtons()
         }
 
         binding.menyerahButtonSejIndo.setOnClickListener {
             findNavController().navigate(R.id.action_indonesiaKuisFragment_to_semuaKuis2)
         }
+
+        // Disable back button
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Do nothing to disable back button
+            }
+        })
     }
 
     private fun displayQuestion() {
@@ -60,17 +74,26 @@ class IndonesiaKuisFragment : Fragment() {
         val question = questionList[currentQuestionIndex]
         if (question.correctAnswer == answer) {
             binding.feedbackPertanyaanSejIndo.text = "Yey, benar!\n${question.explanation}"
-            binding.nextPertanyaanSejIndo.setOnClickListener {
-
-                // ke soal selanjutnya
-            }
+//            binding.nextPertanyaanSejIndo.setOnClickListener {
+//
+//                // ke soal selanjutnya
+//            }
         } else {
             binding.feedbackPertanyaanSejIndo.text = "Yah, salah :(\n${question.explanation}"
-            binding.nextPertanyaanSejIndo.setOnClickListener {
+//            binding.nextPertanyaanSejIndo.setOnClickListener {
+//
+//                // ke soal selanjutnya
+//            }
 
-                // ke soal selanjutnya
-            }
         }
+        Handler(Looper.getMainLooper()).postDelayed({
+            findNavController().navigate(R.id.action_indonesiaKuisFragment_to_soalSejarahIndonesia2)
+        }, 4000) // Delay 4 detik
+    }
+
+    private fun disableAnswerButtons() {
+        binding.benarButtonSejIndo.isEnabled = false
+        binding.salahButtonSejIndo.isEnabled = false
     }
 
     override fun onDestroyView() {

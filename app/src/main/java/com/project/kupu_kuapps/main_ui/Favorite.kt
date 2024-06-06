@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.kupu_kuapps.R
@@ -86,12 +87,22 @@ class Favorite : Fragment() {
             favoriteKuisList.clear()
             favoriteKuisList.addAll(kuisList.filter { it.isFavorited })
             kuisAdapter.notifyDataSetChanged()
+        }, { kuis ->
+            // Handle button click
+            findNavController().navigate(kuis.destinationId)
         })
 
         val recyclerViewFavoriteKuis = binding.rvFavoriteKuis
         recyclerViewFavoriteKuis.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         recyclerViewFavoriteKuis.setHasFixedSize(true)
         recyclerViewFavoriteKuis.adapter = kuisAdapter
+
+        // Disable back button
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Do nothing to disable back button
+            }
+        })
     }
 
     // Utility function to save favorite status in SharedPreferences
